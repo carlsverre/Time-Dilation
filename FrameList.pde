@@ -5,6 +5,10 @@ class FrameList {
     frames = new ArrayList();
   }
   
+  int size() {
+    return frames.size();
+  }
+  
   PImage get(int i) {
     if(i < 0 || i >= frames.size()) exit();
     return (PImage) frames.get(i);

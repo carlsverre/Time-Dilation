@@ -13,7 +13,7 @@ class Effect {
   
   void start() {
     println("Starting effect named: " + getName());
-    internalBuffer = createImage(width, height, ARGB);
+    internalBuffer = createImage(width, height, RGB);
     graphicsBuffer = createGraphics(width, height, P2D);
     justStarted = true;
   }

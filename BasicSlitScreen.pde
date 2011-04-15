@@ -5,9 +5,9 @@ static int BSS_MODE_COPYMIDDLE        = 1;
 static int BSS_MODE_COPYSCAN          = 2;
 
 class BasicSlitScreen extends Effect {
-  int copySpread = 1;
-  int scanDirection = BSS_DIRECTION_VERTICAL;
-  int copyMode = BSS_MODE_COPYSCAN;
+  int copySpread;
+  int scanDirection;
+  int copyMode;
   
   int scanLineIndex = 0;
   
@@ -21,6 +21,9 @@ class BasicSlitScreen extends Effect {
     super.start();
     scanLineIndex = 0;
     saveNextFrame = false;
+    copySpread = 1;
+    scanDirection = BSS_DIRECTION_VERTICAL;
+    copyMode = BSS_MODE_COPYSCAN;
   }
   
   void exportFrame() {
@@ -36,6 +39,9 @@ class BasicSlitScreen extends Effect {
       case 's':
         scanDirection = (scanDirection == BSS_DIRECTION_VERTICAL) ?
           BSS_DIRECTION_HORIZONTAL : BSS_DIRECTION_VERTICAL;
+        break;
+      case 'r':
+        start();
         break;
     }
   }

@@ -3,6 +3,9 @@ Capture myCapture;
 
 int WIDTH = 640;
 int HEIGHT = 480;
+int KEEPFRAMES = 5;
+
+time_dilation APP = this;
 
 FrameList frames;
 Effect currentEffect = null;
@@ -62,5 +65,5 @@ void draw() {
   background(0);
   PImage pi = frames.last();
   copy(pi,0,0,pi.width,pi.height,0,0,width,height);
-  frames.keep(30);
+  frames.keep(5);
 }

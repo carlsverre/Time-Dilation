@@ -11,6 +11,9 @@ class Rectangle {
     this.w = newX - x;
     this.h = newY - y;
   }
+  void incrWidth(int n) {
+    w += n;
+  }
   
   int left() {
     if(w < 0) return x - abs(w);
@@ -37,14 +40,14 @@ class Rectangle {
   }
   
   void draw(PGraphics buffer, PImage frame) {
+    this.draw(buffer,frame,0x33000000);
+  }
+  
+  void draw(PGraphics buffer, PImage frame, color c) {
     int tx = left(),
         ty = top(),
         tw = width(),
         th = height();
-        
-    print("Drawing rectangle at ");
-    print("x("+tx+") ");
-    println("y("+ty+") ");
         
     buffer.copy(frame,tx,ty,tw,th,0,0,tw,th);
     
